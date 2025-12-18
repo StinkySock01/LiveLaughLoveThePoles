@@ -66,7 +66,6 @@ body {
   opacity: 1;
 }
 
-/* Main Content */
 .main {
   max-width: 800px;
   margin: 0 auto;
@@ -88,7 +87,6 @@ body {
   opacity: 0.85;
 }
 
-/* Footer */
 .footer {
   text-align: center;
   padding: 30px 20px;
