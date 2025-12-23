@@ -96,9 +96,10 @@ body {
 
 .content {
   margin-top: 25px;
-  height: 400;
+  height: 300;
+  width: 200;
   padding: 60px 20px;
-  
+  overflow-x: hidden;
 }
 
 #unique-image {
@@ -338,6 +339,7 @@ section.m {
   .background-image {
     display: block;
     width: 100vw;
+    overflow-x: hidden;
   }
 
   .background-overlay {
@@ -354,6 +356,7 @@ section.m {
   height: 100vh;
   object-fit: cover;
   z-index: -3;
+  overflow-x: hidden;
 }
 
 @media (max-width: 100vw){
@@ -362,5 +365,6 @@ section.m {
     opacity: 0.4;
     width: 100%;
     height: 100vh;
+    overflow-x: hidden;
   }
 }
