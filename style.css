@@ -49,6 +49,7 @@ body {
 }
 
 .nav a {
+  display: flex;
   color: #fff;
   text-decoration: none;
   font-size: 0.85rem;
@@ -124,12 +125,9 @@ section.m {
 }
 
 .sub-heading {
-  margin-top: 0;
-  margin-left: 0;
-  height: 400;
-  padding: 20px;
+  padding : min(5em, 8%);
+  font-size: clamp(1.8, calc(7vw + 1rem), 5rem);
   text-align: justify;
-
 }
 .carousel {
   width: 100%;
@@ -263,5 +261,99 @@ section.m {
 @media (max-width: 768px) {
   .links-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+
+.background-video,
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -3;
+}
+
+.background-video {
+  display: block;
+  opacity: 0.7;
+}
+
+.background-image {
+  display: none;
+}
+
+.background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.2;
+  z-index: -2;
+}
+
+/*desktops*/
+@media (max-width: 1440px) {
+  .background-video {
+    display: block;
+  }
+
+  .background-image {
+    display: none;
+  }
+
+  .background-overlay {
+    opacity: 0.1;
+  }
+}
+/*Tablet*/
+@media (max-width: 1024px) {
+  .background-video {
+    display: none;
+  }
+
+  .background-image {
+    display: block;
+  }
+
+  .background-overlay {
+    opacity: 0.4;
+  }
+}
+
+/* phone */
+@media (max-width: 600px) {
+  .background-video {
+    display: none;
+  }
+
+  .background-image {
+    display: block;
+  }
+
+  .background-overlay {
+    opacity: 0.4;
+  }
+}
+
+
+.background-static {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -3;
+}
+
+@media (max-width: 100vw){
+  .background-static {
+    display: block;
+    opacity: 0.4;
   }
 }
