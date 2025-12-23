@@ -274,8 +274,9 @@ section.m {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
+  overflow-x: hidden;
   object-fit: cover;
   z-index: -3;
 }
@@ -323,6 +324,9 @@ section.m {
 
   .background-image {
     display: block;
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
   }
 
   .background-overlay {
@@ -338,7 +342,8 @@ section.m {
 
   .background-image {
     display: block;
-    width: 100vw;
+    width: 100%;
+    height: 100vh;
     overflow-x: hidden;
   }
 
