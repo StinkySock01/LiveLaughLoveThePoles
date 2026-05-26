@@ -27,6 +27,22 @@
         <a href="fancam.html">Fancams</a>
         <a href="picture.html">Pictures</a>
     </nav>
+    
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    
+    <nav id="navbar">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="fancam.html">Fan Cam</a></li>
+        <li><a href="interview.html">Interviews</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="picture.html">Pictures</a></li>
+    </ul>
+</nav>
 
   <main class="main">
 <div class="background-overlay"></div>
@@ -85,8 +101,28 @@
       This is a non-commercial, fan-made website. All trademarks, logos,
       and content belong to their respective owners.
     </p>
-    <p>© 2024 The Poles Fan Archive</p>
+    <p>© 2026 The Poles Fan Archive</p>
   </footer>
+
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navbar = document.getElementById('navbar');
+
+    hamburger.addEventListener('click', function() {
+      navbar.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked
+    const navLinks = navbar.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        navbar.classList.remove('active');
+        hamburger.classList.remove('active');
+      });
+    });
+  </script>
 
 </body>
 </html>
