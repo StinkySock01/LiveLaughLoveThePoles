@@ -46,27 +46,31 @@
       <h2>Pictures</h2>
       </section> 
       <section class="pictures-container">
-        <div class="picture-slider-wrapper">
-          <div class="echo-slider">
-            <img id="echo-slide0" src="pictures/echo.jpg" alt="The Poles Picture 0" />
-            <img id="echo-slide1" src="pictures/echo1.jpg" alt="The Poles Picture 1" />
-            <img id="echo-slide2" src="pictures/echo2.jpg" alt="The Poles Picture 2" />
-            <img id="echo-slide3" src="pictures/echo3.jpg" alt="The Poles Picture 3" />
-            <img id="echo-slide4" src="pictures/echo4.jpg" alt="The Poles Picture 4" />
-            <img id="echo-slide5" src="pictures/echo5.jpg" alt="The Poles Picture 5" />
-            <img id="echo-slide6" src="pictures/echo6.jpg" alt="The Poles Picture 6" />
-            <img id="echo-slide7" src="pictures/echo7.jpg" alt="The Poles Picture 7" />
-            <img id="echo-slide8" src="pictures/echo8.jpg" alt="The Poles Picture 8" />
-            <img id="echo-slide9" src="pictures/echo9.jpg" alt="The Poles Picture 9" />
-            <img id="echo-slide10" src="pictures/echo10.jpg" alt="The Poles Picture 10" />
-            <img id="echo-slide11" src="pictures/echo11.jpg" alt="The Poles Picture 11" />
-            <img id="echo-slide12" src="pictures/echo12.jpg" alt="The Poles Picture 12" />
-            <img id="echo-slide13" src="pictures/echo13.jpg" alt="The Poles Picture 13" />
-            <img id="echo-slide14" src="pictures/echo14.jpg" alt="The Poles Picture 14" />
-            <img id="echo-slide15" src="pictures/echo15.jpg" alt="The Poles Picture 15" />
-            <img id="echo-slide16" src="pictures/echo16.jpg" alt="The Poles Picture 16" />
-            <img id="echo-slide17" src="pictures/echo17.jpg" alt="The Poles Picture 17" />
-            <img id="echo-slide18" src="pictures/echo18.jpg" alt="The Poles Picture 18" />
+        <article class="picture-card">
+          <div class="picture-slider-wrapper">
+            <button class="slider-arrow left" aria-label="Previous picture">‹</button>
+            <div class="echo-slider" id="pictureSlider">
+              <img id="echo-slide0" src="pictures/echo.jpg" alt="The Poles Picture 0" />
+              <img id="echo-slide1" src="pictures/echo1.jpg" alt="The Poles Picture 1" />
+              <img id="echo-slide2" src="pictures/echo2.jpg" alt="The Poles Picture 2" />
+              <img id="echo-slide3" src="pictures/echo3.jpg" alt="The Poles Picture 3" />
+              <img id="echo-slide4" src="pictures/echo4.jpg" alt="The Poles Picture 4" />
+              <img id="echo-slide5" src="pictures/echo5.jpg" alt="The Poles Picture 5" />
+              <img id="echo-slide6" src="pictures/echo6.jpg" alt="The Poles Picture 6" />
+              <img id="echo-slide7" src="pictures/echo7.jpg" alt="The Poles Picture 7" />
+              <img id="echo-slide8" src="pictures/echo8.jpg" alt="The Poles Picture 8" />
+              <img id="echo-slide9" src="pictures/echo9.jpg" alt="The Poles Picture 9" />
+              <img id="echo-slide10" src="pictures/echo10.jpg" alt="The Poles Picture 10" />
+              <img id="echo-slide11" src="pictures/echo11.jpg" alt="The Poles Picture 11" />
+              <img id="echo-slide12" src="pictures/echo12.jpg" alt="The Poles Picture 12" />
+              <img id="echo-slide13" src="pictures/echo13.jpg" alt="The Poles Picture 13" />
+              <img id="echo-slide14" src="pictures/echo14.jpg" alt="The Poles Picture 14" />
+              <img id="echo-slide15" src="pictures/echo15.jpg" alt="The Poles Picture 15" />
+              <img id="echo-slide16" src="pictures/echo16.jpg" alt="The Poles Picture 16" />
+              <img id="echo-slide17" src="pictures/echo17.jpg" alt="The Poles Picture 17" />
+              <img id="echo-slide18" src="pictures/echo18.jpg" alt="The Poles Picture 18" />
+            </div>
+            <button class="slider-arrow right" aria-label="Next picture">›</button>
           </div>
           <div class="pictures-nav">
                <a href="#echo-slide0"></a>
@@ -89,9 +93,8 @@
                <a href="#echo-slide17"></a>
                <a href="#echo-slide18"></a>
           </div>
-        </div>
-        <div>
-          <p>"ECHO! (talk to me baby)" Comeback photoshoot </p>
+          <p class="picture-caption">"ECHO! (talk to me baby)" Comeback photoshoot</p>
+        </article>
       </section>
     </main>
     <footer class="footer">
@@ -118,6 +121,29 @@
           hamburger.classList.remove('active');
         });
       });
+
+      const slider = document.getElementById('pictureSlider');
+      const slides = slider ? Array.from(slider.querySelectorAll('img')) : [];
+      let currentSlide = 0;
+
+      function showSlide(index) {
+        if (!slides.length) return;
+        if (index < 0) index = slides.length - 1;
+        if (index >= slides.length) index = 0;
+        currentSlide = index;
+        slides[index].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+
+      const leftArrow = document.querySelector('.slider-arrow.left');
+      const rightArrow = document.querySelector('.slider-arrow.right');
+
+      if (leftArrow) {
+        leftArrow.addEventListener('click', () => showSlide(currentSlide - 1));
+      }
+
+      if (rightArrow) {
+        rightArrow.addEventListener('click', () => showSlide(currentSlide + 1));
+      }
     </script>
     </body>
 </html>
